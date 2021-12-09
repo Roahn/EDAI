@@ -1,0 +1,24 @@
+{
+  "name": "edai",
+  "version": "1.0.0",
+  "description": "Edai project for hospital management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roahn/EDAI.git"
+  },
+  "author": "Rohan Magar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Roahn/EDAI/issues"
+  },
+  "homepage": "https://github.com/Roahn/EDAI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "nodemon": "^2.0.15"
+  }
+}
