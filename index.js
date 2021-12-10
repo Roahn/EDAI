@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 // folder of the project.
 res.sendFile(path.join(__dirname, '/index.html'));
 });
-
+//** */
 app.get('/products', (req, res) => {
 res.sendFile(path.join(__dirname, '/public/products.html'));
 });
