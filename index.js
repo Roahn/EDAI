@@ -1,4 +1,32 @@
+//********************************************************************** */
+/*
+Rohan Magar
+Ankit Mahalpure
+Keshav Sarda
+Tarun Lodha
+
+
+
+Useful Links :
+Inserting into database
+https://www.youtube.com/watch?v=lldeWkkG9xA
+
+*/
+
+
+
+/**************************************************************************** */
+
+
+
+
+
+
+
 // Importing modules
+
+//ormdata
+//console.log(formdata);
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -14,23 +42,46 @@ app.get('/', (req, res) => {
 res.sendFile(path.join(__dirname, '/index.html'));
 });
 //** */
-app.get('/products', (req, res) => {
-res.sendFile(path.join(__dirname, '/public/products.html'));
+
+app.use(express.urlencoded({extended:false}));
+
+app.use(express.json());
+
+
+app.post('/add', (req, res) => {
+
+    var a = req.body.username;
+    var b = req.body.password;
+   console.log(a,b);
+   var sql = "INSERT INTO user(username,password) VALUES "+"("  +"'"+a+"'"+",'"+b+"'"+    ")";
+    con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+
+    
+  });
+
+  res.send('Send !!!');
+  res.end();
 });
 
 
 
 var mysql = require('mysql');
+const { Console } = require('console');
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root"
+  password: "root",
+  database:"mydb1"
 });
+
 
 con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+    if (err) throw err;
+    console.log("Connected!");
+   
 });
 
 
@@ -38,7 +89,7 @@ con.connect(function(err) {
 
 
 
-
+//con.end();
 app.listen(3000, () => {
-console.log('Server is up on port 3000');
+console.log('Server is up on port http://localhost:3000/');
 });
