@@ -1,26 +1,23 @@
-const http = require('http');
+// Importing modules
+const express = require('express');
+const path = require('path');
+const app = express();
 
-const hostname = '127.0.0.1';
-const port = 3000;
+app.get('/', (req, res) => {
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  
-  res.end('Hello World');
-});
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root"
+// Sending our index.html file as
+// response. In path.join() method
+// __dirname is the directory where
+// our app.js file is present. In
+// this case __dirname is the root
+// folder of the project.
+res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+app.get('/products', (req, res) => {
+res.sendFile(path.join(__dirname, '/public/products.html'));
 });
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+
+app.listen(3000, () => {
+console.log('Server is up on port 3000');
 });
