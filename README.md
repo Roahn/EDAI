@@ -1,3 +1,3 @@
-#MySQL_Connection_template
+#MySQL_Connection_Template
 
  MySQL Connection using javascript
